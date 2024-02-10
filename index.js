@@ -125,7 +125,8 @@ let myGameArea = {
     this.context = this.canvas.getContext("2d")
     document.body.insertBefore(this.canvas, document.body.childNodes[0])
     this.frameNo = 0
-    this.interval = setInterval(updateGameArea, 20)
+    // this.interval = setInterval(updateGameArea, 20)
+    updateGameArea()
   },
 
   clear: function () {
@@ -185,6 +186,8 @@ function updateGameArea() {
   ctx.fillText("Score: " + score, 10, 30)
 
   myCube.update()
+
+  requestAnimationFrame(updateGameArea)
 }
 
 function Muzzle(width, height, angle, color) {
